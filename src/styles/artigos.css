@@ -1,0 +1,59 @@
+.titulos-artigos {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.artigos-content{
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    margin-bottom: 25px;
+    align-items: center;
+    justify-content: center;
+}
+
+.artigo {
+    display: flex;
+    flex-direction: inline-block;
+    gap: 20px;
+    border: 1px solid var(--color-primary-1);
+    padding: 10px;
+    border: box-sizing;
+    margin: 10px;
+}
+
+li img {
+    width: 150px;
+    height: 150px;
+}
+
+.descArtigo {
+    display: flex;
+    flex-direction: column;
+}
+
+#artigos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;    
+}
+#artigos button {
+    padding: 0.7rem 1.2rem;
+    background: var(--color-primary-1);;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#artigos button:hover {
+    background: var(--color-primary-4);
+}
