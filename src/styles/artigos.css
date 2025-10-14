@@ -21,7 +21,7 @@
     gap: 20px;
     border: 1px solid var(--color-primary-1);
     padding: 10px;
-    border: box-sizing;
+    box-sizing: border-box;
     margin: 10px;
 }
 

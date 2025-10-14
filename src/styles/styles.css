@@ -2,6 +2,7 @@
 @import url('header.css');
 @import url('home.css');
 @import url('artigos.css');
+@import url('nossaMissao.css');
 
 :root {
     --color-primary-1: #45515D;
