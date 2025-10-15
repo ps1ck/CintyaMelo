@@ -17,7 +17,7 @@
     --color-neutral-1: #eff1f3;
     --color-neutral-2: #bcbdbe;
     --color-neutral-3: #0B0B85;
-    --color-neutral-4: #AEB8C1;
+    --color-neutral-4: #83898e;
 }
 
 *{
@@ -28,14 +28,14 @@
 }
 .titulos {  
     color: var(--color-primary-1);
-    font-size: 2.5rem;
-    font-weight: 500;
+    font-size: 2rem;
+    font-weight: 450;
 }
 
 .sub-titulos { 
     color: var(--color-primary-1);
-    font-size: 1.5rem ;
-    font-weight: 500;
+    font-size: 1.2rem ;
+    font-weight: 400;
 }
 
 .descriptions {

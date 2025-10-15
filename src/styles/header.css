@@ -1,26 +1,23 @@
 header {
     display: flex;
+    flex-direction: row;
     align-items: flex-start;
     background-color: var(--color-neutral-1);
     box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.25);
-    z-index: 9;
+    z-index: 999;
     position: relative;
 }
 
-.start-header {
-    width: 50%;
-    display: flex;
-    gap: 30px;
-    padding: 20px 0 20px 4vw;
-}
-
-.start-header .logo img {
-    width: 180px;
+header img {
+    width: 130px;
     height: auto;
+    margin: 30px 30px;
 }
 
-.titulos-logo {
+.header-content {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    margin: 30px 0px;
+    gap: 20px;
 }
+
