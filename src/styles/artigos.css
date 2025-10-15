@@ -1,48 +1,38 @@
-.titulos-artigos {
+#artigos {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
+    margin: 30px;
+    gap: 15px;
 }
 
-.artigos-content{
+.artigos-content {
     display: flex;
     flex-direction: column;
-    margin-top: 40px;
-    margin-bottom: 25px;
-    align-items: center;
-    justify-content: center;
+    gap: 25px;
 }
 
 .artigo {
     display: flex;
-    flex-direction: inline-block;
+    flex-direction: row;
+    border: 1px solid var(--color-neutral-4) ;
     gap: 20px;
-    border: 1px solid var(--color-primary-1);
-    padding: 10px;
-    box-sizing: border-box;
-    margin: 10px;
+    box-shadow: 0px 5px 1px 2px rgba(0, 0, 0, 0.25);
 }
 
-li img {
-    width: 150px;
-    height: 150px;
+.artigo img {
+    width: 200px;
+    height: 160px;
 }
 
 .descArtigo {
     display: flex;
     flex-direction: column;
+    padding: 5px 12px 0px 0px;
+    box-sizing: border-box;
 }
 
-#artigos {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 30px;
-    margin-bottom: 30px;    
-}
 #artigos button {
     padding: 0.7rem 1.2rem;
     background: var(--color-primary-1);;
