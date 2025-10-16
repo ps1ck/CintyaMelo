@@ -5,6 +5,7 @@
 @import url('nossaMissao.css');
 @import url('pre-footer.css');
 @import url('footer.css');
+@import url('PAGEartigos.css');
 
 :root {
     --color-primary-1: #45515D;
@@ -27,6 +28,13 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+/* Prevent accidental horizontal overflow on small devices. This is a safety net;
+   layout should still be responsive without relying on this. */
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
 .titulos {  
     color: var(--color-primary-1);
     font-size: 2rem;
@@ -44,3 +52,32 @@
     font-size: 0.94rem;
     font-weight: 395;
 }
+
+/* Make images and svgs responsive by default to avoid overflow */
+img, svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Small adjustments for very small screens */
+@media (max-width: 420px) {
+    .titulos { font-size: 1.4rem; }
+    .sub-titulos { font-size: 1rem; }
+}
+
+/* Scroll reveal utilities */
+.reveal-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1300ms cubic-bezier(.2,.9,.3,1), transform 1300ms cubic-bezier(.2,.9,.3,1);
+    will-change: opacity, transform;
+}
+.reveal-item.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Small helper to stagger children if inline style not provided */
+.reveal-stagger > * { opacity: 0; transform: translateY(30px); transition: opacity 1300ms cubic-bezier(.2,.9,.3,1), transform 1300ms cubic-bezier(.2,.9,.3,1); }
+.reveal-stagger > *.revealed { opacity: 1; transform: translateY(0); }

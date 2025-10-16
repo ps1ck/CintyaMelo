@@ -11,7 +11,6 @@ footer {
     display: flex;
     flex-direction: row;
     margin: 30px;
-    gap: 30px;
 }
 
 .esquerda-footer {
@@ -22,7 +21,8 @@ footer {
     gap: 30px;
     padding: 0px 30px;
     box-sizing: border-box;
-    width: 37%;
+    flex: 1 1 280px;
+    max-width: 37%;
 }
 
 .esquerda-footer img {
@@ -48,7 +48,8 @@ footer {
     border-right: 2px solid var(--color-neutral-4);
     padding: 0px 30px;
     box-sizing: border-box;
-    width: 26%;
+    flex: 1 1 260px;
+    max-width: 26%;
 }
 
 .meio-footer h2{
@@ -92,11 +93,45 @@ footer {
     gap: 20px;
     padding: 0px 30px;
     box-sizing: border-box;
-    width: 37%;
+    flex: 1 1 280px;
+    max-width: 37%;
 }
 
 .direita-footer p {
     font-size: 20px;
     font-weight: 500;
     color: var(--color-primary-1);
+}
+
+@media (max-width: 810px) {
+    /* Stack everything in a single column for screens <= 810px */
+    .footer-content { flex-direction: column; align-items: center; gap: 12px; margin: 16px; }
+
+    /* make each section full width and center their content */
+    .esquerda-footer, .meio-footer, .direita-footer { flex: 1 1 100%; max-width: 100%; padding: 12px 10px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; text-align: center; border-left: none; border-right: none; }
+    .esquerda-footer img { max-width: 120px; margin-bottom: 8px; }
+    .direita-footer p { font-size: 0.95rem; }
+    footer > p { text-align: center; padding: 8px 0 24px; }
+}
+
+/* Very small screens: stack everything in a single column */
+@media (max-width: 420px) {
+    .footer-content { flex-direction: column; gap: 12px; margin: 16px; align-items: center; }
+    .esquerda-footer, .meio-footer, .direita-footer { flex: 1 1 100%; max-width: 100%; padding: 12px 10px; border-left: none; border-right: none; }
+    .esquerda-footer img { max-width: 120px; margin-bottom: 8px; }
+    .meio-footer { border-left: none; border-right: none; }
+    .direita-footer p { font-size: 0.95rem; }
+    footer > p { text-align: center; padding: 8px 0 24px; }
+}
+
+/* Apply the same stacked-top / two-column-below layout for larger tablets and medium screens */
+@media (max-width: 1270px) and (min-width: 811px) {
+    .footer-content { flex-wrap: wrap; align-items: flex-start; }
+    .esquerda-footer { order: 0; flex: 1 1 100%; max-width: 100%; padding: 18px 24px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .esquerda-footer .esquerda-footer-content { margin: 0; align-items: center; }
+    .esquerda-footer img { max-width: 160px; margin-bottom: 8px; }
+
+    .meio-footer { order: 1; flex: 1 1 48%; max-width: 48%; padding: 12px 20px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; border-left: none; border-right: none; }
+    .direita-footer { order: 2; flex: 1 1 48%; max-width: 48%; padding: 12px 20px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; justify-content: center; border-left: none; }
+    .direita-footer p { text-align: center; }
 }

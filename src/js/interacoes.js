@@ -58,4 +58,77 @@ document.addEventListener("DOMContentLoaded", function () {
         let currentViews = localStorage.getItem(viewKey) || 0;
         viewCountEl.innerHTML = `${currentViews} <span class="views">Visualizações</span>`;
     });
+
+    /* Scroll reveal using IntersectionObserver */
+    const revealTargets = [];
+
+    // titulos-artigos (reveal from bottom)
+    document.querySelectorAll('.titulos-artigos').forEach(el => revealTargets.push(el));    
+
+    // 'Ver mais' button at the end of artigos
+    const verMaisBtn = document.querySelector('#artigos a');
+    if (verMaisBtn) revealTargets.push(verMaisBtn);
+
+    // pre-footer: reveal all children with a stagger
+    const preFooter = document.querySelector('#pre-footer');
+    let preFooterChildren = [];
+    if (preFooter) {
+        preFooterChildren = Array.from(preFooter.children);
+        // mark parent so we can stagger children
+        preFooter.classList.add('reveal-stagger');
+        preFooterChildren.forEach(child => child.classList.add('reveal-item'));
+    }
+
+    // TextoNossaMissao: reveal all children with a stagger (same behavior as pre-footer)
+    const nossaMissao = document.querySelector('.TextoNossaMissao');
+    let nossaMissaoChildren = [];
+    if (nossaMissao) {
+        nossaMissaoChildren = Array.from(nossaMissao.children);
+        nossaMissao.classList.add('reveal-stagger');
+        nossaMissaoChildren.forEach(child => child.classList.add('reveal-item'));
+    }
+
+    // Add reveal-item to single targets
+    revealTargets.forEach(node => {
+        if (!node.classList.contains('reveal-item')) node.classList.add('reveal-item');
+    });
+
+    // Configurable timings (change these to tune behavior)
+    const REVEAL_DELAY_MS = 120; // delay before reveal after entering viewport
+    const PREFOOTER_STAGGER_MS = 150; // stagger between pre-footer children
+
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const el = entry.target;
+            if (entry.isIntersecting) {
+                // if parent is pre-footer, stagger children
+                if (el === preFooter) {
+                    preFooterChildren.forEach((child, i) => {
+                        setTimeout(() => child.classList.add('revealed'), REVEAL_DELAY_MS + i * PREFOOTER_STAGGER_MS);
+                    });
+                } else if (el === nossaMissao) {
+                    nossaMissaoChildren.forEach((child, i) => {
+                        setTimeout(() => child.classList.add('revealed'), REVEAL_DELAY_MS + i * PREFOOTER_STAGGER_MS);
+                    });
+                } else {
+                    setTimeout(() => el.classList.add('revealed'), REVEAL_DELAY_MS);
+                }
+            } else {
+                // remove revealed so the animation can reset when re-entering
+                if (el === preFooter) {
+                    preFooterChildren.forEach(child => child.classList.remove('revealed'));
+                } else if (el === nossaMissao) {
+                    nossaMissaoChildren.forEach(child => child.classList.remove('revealed'));
+                } else {
+                    el.classList.remove('revealed');
+                }
+            }
+        });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+
+    // Observe parent preFooter wrapper for stagger, and other targets normally
+    if (preFooter) io.observe(preFooter);
+    if (nossaMissao) io.observe(nossaMissao);
+    revealTargets.forEach(node => { if (node !== preFooter) io.observe(node); });
+
 });

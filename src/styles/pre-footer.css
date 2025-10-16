@@ -16,4 +16,11 @@
 #Texto-pre-footer h1 {
     font-weight: 400;
     color: var(--color-neutral-3);
+    font-size: clamp(1rem, 2.5vw, 1.6rem);
+    padding: 0 1rem;
+}
+
+@media (max-width: 420px) {
+    #pre-footer { margin: 24px 8px; }
+    #Texto-pre-footer h1 { font-size: 1rem; }
 }

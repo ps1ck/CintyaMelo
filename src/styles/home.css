@@ -1,8 +1,10 @@
 #home {
     display: flex;
-    width: 100vw;
-    height: 95vh;
+    width: 100%; /* avoid 100vw which can cause horizontal overflow due to scrollbars */
+    min-height: 70vh;
+    align-items: stretch;
     background: linear-gradient(120deg, var(--color-primary-2) 0%, var(--color-primary-5) 60%, var(--color-primary-4) 100%);
+    flex-wrap: wrap; /* allow stacking on small screens */
 }
 
 .banner-left, .banner-right {
@@ -24,7 +26,7 @@
 }
 
 .banner-right h1 {
-    font-size: 3vw;
+    font-size: clamp(1.6rem, 3vw, 3.6rem);
     color: var(--color-primary-1);
     text-align: right;
     line-height: 1.2;
@@ -35,9 +37,24 @@
 }
 
 .banner-left h2 {
-    font-size: 1.5vw;
+    font-size: clamp(1rem, 1.5vw, 1.8rem);
     color: var(--color-primary-1);
     margin-bottom: 2rem;
+}
+
+/* Layout adjustments for small devices */
+@media (max-width: 800px) {
+    #home { min-height: 60vh; }
+    .banner-left, .banner-right { width: 100%; padding: 2rem 4vw; align-items: center; text-align: center; }
+    .banner-left { align-items: center; padding-left: 4vw; }
+    .banner-right { align-items: center; padding-right: 4vw; }
+    .banner-right h1 { text-align: center; }
+    .email-form { justify-content: center; flex-wrap: wrap; }
+}
+
+@media (max-width: 420px) {
+    .email-form input[type="email"], .email-form button { width: 100%; }
+    .email-form { gap: 0.5rem; }
 }
 
 .email-form {
