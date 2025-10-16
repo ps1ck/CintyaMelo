@@ -4,7 +4,7 @@ footer {
     align-items: center;
     justify-content: space-between;
     gap: 5px;
-    background: linear-gradient(120deg, var(--color-primary-6) 0%, var(--color-primary-5) 100%);
+    background: linear-gradient(80deg, var(--color-neutral-7) 0%, var(--color-neutral-6) 100%);
 }
 
 .footer-content {

@@ -131,4 +131,78 @@ document.addEventListener("DOMContentLoaded", function () {
     if (nossaMissao) io.observe(nossaMissao);
     revealTargets.forEach(node => { if (node !== preFooter) io.observe(node); });
 
+    /* === Side menu interactions === */
+    const btnHamburger = document.getElementById('btn-hamburger');
+    const sideMenu = document.getElementById('side-menu');
+    const sideMenuClose = document.getElementById('side-menu-close');
+
+    // create overlay element (insert once)
+    let overlay = document.querySelector('.side-menu-overlay');
+    if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.className = 'side-menu-overlay';
+        document.body.appendChild(overlay);
+    }
+
+    function openMenu() {
+        sideMenu.classList.add('open');
+        overlay.classList.add('visible');
+        btnHamburger.setAttribute('aria-expanded', 'true');
+        sideMenu.setAttribute('aria-hidden', 'false');
+        // trap focus loosely: focus first link
+        const firstLink = sideMenu.querySelector('a');
+        if (firstLink) firstLink.focus();
+    }
+
+    function closeMenu() {
+        sideMenu.classList.remove('open');
+        overlay.classList.remove('visible');
+        btnHamburger.setAttribute('aria-expanded', 'false');
+        sideMenu.setAttribute('aria-hidden', 'true');
+        btnHamburger.focus();
+    }
+
+    if (btnHamburger && sideMenu) {
+        btnHamburger.addEventListener('click', (e) => {
+            const isOpen = sideMenu.classList.contains('open');
+            if (isOpen) closeMenu(); else openMenu();
+        });
+    }
+
+    if (sideMenuClose) sideMenuClose.addEventListener('click', closeMenu);
+
+    // close when clicking outside (overlay) or on a menu link
+    overlay.addEventListener('click', closeMenu);
+    sideMenu.addEventListener('click', (e) => {
+        const target = e.target;
+        if (target.tagName === 'A') {
+            // let link navigate, but close menu first
+            closeMenu();
+        }
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && sideMenu.classList.contains('open')) {
+            closeMenu();
+        }
+    });
+
+    // Smooth scroll to anchors in-page
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', function (ev) {
+            const href = this.getAttribute('href');
+            if (href && href.startsWith('#') && href.length > 1) {
+                const target = document.querySelector(href);
+                if (target) {
+                    ev.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // update hash without jumping
+                    history.replaceState(null, '', href);
+                    closeMenu();
+                }
+            }
+        });
+    });
+
 });
