@@ -7,6 +7,24 @@
     gap: 15px;
 }
 
+.titulos-artigos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+
+.titulos-artigos img { 
+    width: 650px;
+    height: auto;
+    margin-right: 50px;
+}
+
+.titulos-artigos h2 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
 .artigos-content {
     display: flex;
     flex-direction: column;
@@ -16,21 +34,98 @@
 .artigo {
     display: flex;
     flex-direction: row;
-    border: 1px solid var(--color-neutral-4) ;
+    border: 1px solid var(--color-neutral-2);
     gap: 20px;
-    box-shadow: 0px 5px 1px 2px rgba(0, 0, 0, 0.25);
+    width: 980px;
+    height: 220px;
+    cursor: pointer;
 }
 
 .artigo img {
-    width: 200px;
-    height: 160px;
+    width: 290px;
+    height: 220px;
 }
 
 .descArtigo {
     display: flex;
     flex-direction: column;
-    padding: 5px 12px 0px 0px;
+    justify-content: center;
+    padding: 24px 36px;
     box-sizing: border-box;
+    gap: 10px;
+}
+
+.descArtigo h1 {
+    font-size: 1.75rem;
+    font-weight: 425;
+}
+
+.descArtigo p {
+    position: relative;
+    max-height: 3.8em;
+    overflow: hidden;
+    line-height: 1.4em;
+}
+
+.descArtigo p::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1.2em;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), white 90%);
+}
+
+.descArtigo hr{
+    border: none;
+    height: 1px;
+    background-color: var(--color-neutral-2);
+}
+
+.interactions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    font-weight: 395;
+    color: var(--color-primary-1);
+}
+
+.interactions span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.like-area {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    color: var(--color-primary-1);
+    transition: color 0.3s;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+.like-icon {
+    width: 20px;
+    height: 20px;
+    stroke: var(--color-primary-1);
+    fill: none;
+    transition: stroke 0.3s, fill 0.3s;
+}
+
+.like-area.liked .like-icon {
+    fill: red;
+    stroke: red;
+}
+
+.like-area:hover .like-icon {
+    stroke: red;
 }
 
 #artigos button {

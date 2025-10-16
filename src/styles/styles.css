@@ -18,6 +18,7 @@
     --color-neutral-2: #bcbdbe;
     --color-neutral-3: #0B0B85;
     --color-neutral-4: #83898e;
+    --color-neutral-5: #F6F1D2;
 }
 
 *{
@@ -40,5 +41,6 @@
 
 .descriptions {
     color: var(--color-primary-1);
-    font-size: 1.05rem;
+    font-size: 0.94rem;
+    font-weight: 395;
 }
