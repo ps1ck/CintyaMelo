@@ -1,0 +1,80 @@
+.todosOsPosts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin: 50px 180px;
+}
+
+.artigo-todos-os-artigos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Faz o conteúdo ocupar toda a altura */
+    padding: 15px;
+    border: 1px solid #ccc; /* opcional: deixa cada card destacado */
+    box-sizing: border-box;
+    height: 100%; /* Faz os cards crescerem uniformemente no grid */
+}
+
+.artigo-todos-os-artigos img {
+    width: 100%; /* Faz a imagem ocupar toda a largura do card */
+    height: auto;
+    object-fit: cover;
+}
+
+.header-artigo-todos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Espaça a data e o botão */
+}
+
+.header-artigo-todos p {
+    color: var(--color-primary-1);
+    font-size: 0.95rem;
+    font-weight: 400;
+}
+
+.titulo-artigo-todos {
+    font-size: 1.2rem;
+    color: var(--color-primary-1);
+    font-weight: 425;
+    margin-bottom: 10px;
+}
+
+.descricao-artigo-todos {
+    font-size: 1.05rem;
+    color: var(--color-primary-1);
+    font-weight: 350;
+}
+
+@media (max-width: 768px) {
+    .todosOsPosts {
+        grid-template-columns: 1fr;
+        margin: 50px 90px;
+    }
+}
+
+@media (max-width: 450px) {
+    .todosOsPosts {
+        grid-template-columns: 1fr;
+        margin: 50px 50px;
+    }
+
+    .header-artigo-todos p {
+    color: var(--color-primary-1);
+    font-size: 0.75rem;
+    font-weight: 380;
+}
+
+    .titulo-artigo-todos {
+        font-size: 1rem;
+        color: var(--color-primary-1);
+        font-weight: 415;
+        margin-bottom: 10px;
+    }
+
+    .descricao-artigo-todos {
+        font-size: 0.8rem;
+        color: var(--color-primary-1);
+        font-weight: 350;
+    }
+}

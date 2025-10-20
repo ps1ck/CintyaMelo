@@ -6,6 +6,8 @@
 @import url('pre-footer.css');
 @import url('footer.css');
 @import url('PAGEartigos.css');
+@import url('todosOSposts.css');
+@import url('sobremim.css');
 
 :root {
     --color-primary-1: #45515D;
