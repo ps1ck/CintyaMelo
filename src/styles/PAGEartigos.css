@@ -1,4 +1,123 @@
-.construcaoteste {
-    width: 100vw;
+.main-artigo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto; /* centraliza horizontalmente */
+    max-width: 900px;
+    border: #333 1px solid;
+    box-shadow: -15px -10px 8px -4px rgba(0, 0, 0, 0.25);
+    padding: 40px 80px;
+}
+
+.topo-artigo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.esquerda-topo-artigo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.esquerda-topo-artigo p {
+    color: var(--color-primary-1);
+    font-size: 0.9rem;
+    font-weight: 450;
+}
+
+.esquerda-topo-artigo h1 {
+    color: var(--color-primary-1);
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.div-botao-compartilhar {
+  position: relative;
+  display: inline-block;
+}
+
+.botao-compartilhar {
+    border: none;
+    font-size: 24px;
+    color: var(--color-primary-1);
+    background-color: var(--color-neutral-1);
+    cursor: pointer;
+    padding: 10px;
+    transform: rotate(90deg);
+  }
+
+.botao-compartilhar:hover {
+  color: var(--color-neutral-4);
+}
+
+.botao-compartilhar-showdown {
+  position: absolute;
+  top: 28px;
+  right: 0;
+  background: var(--color-neutral-1);
+  border: 1px solid var(--color-neutral-2);
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: none;
+  cursor: pointer;
+  user-select: none;
+  z-index: 100;
+}
+
+.botao-compartilhar-showdown:hover {
+  background: var(--color-neutral-2);
+}
+
+.botao-compartilhar-showdown.show {
+  display: block;
+}
+
+.meio-artigo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+.meio-artigo img {
+    max-width: 350px;
     height: auto;
+    width: 100%;
+}
+
+.meio-artigo p {
+    color: var(--color-primary-1);
+    font-size: 1.05rem;
+    font-weight: 380;
+    text-align: justify;
+}
+
+.final-artigo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.final-artigo h1 {
+    color: var(--color-primary-1);
+    font-size: 1.32rem;
+    font-weight: 400;
+}
+
+.final-artigo p {
+    color: var(--color-primary-1);
+    font-size: 1.02rem;
+    font-weight: 400;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    text-align: justify;
 }

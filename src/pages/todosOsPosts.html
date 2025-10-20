@@ -4,9 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/styles.css">
-    <title>Document</title>
+    <title>Todos os Posts</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
 </head>
 <body>
-    <img class="construcaoteste" src="../images/x.png" alt="">
+    <header>
+        <img src="../images/logo.png" alt="">
+        <!-- Botão hambúrguer para abrir menu lateral -->
+        <button id="btn-hamburger" class="hamburger" aria-label="Abrir menu" aria-controls="side-menu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+        <div class="header-content">
+            <h1 class="titulos">
+                Cintya Melo<br>
+                Terapeuta Ocupacional
+            </h1>
+            <h2 class="sub-titulos">
+                O blog da Família Atípica
+            </h2>
+        </div>
+    </header>
+    <script src="../js/artigos.js" defer></script>
+    <script src="../js/interacoes.js"></script>
+    <script src="../js/menu.js"></script>
+    <!-- Menu lateral (markup colocado após scripts para facilitar manipulação via JS) -->
+    <nav id="side-menu" class="side-menu" aria-hidden="true">
+        <div class="side-menu-inner">
+            <button id="side-menu-close" class="side-menu-close" aria-label="Fechar menu">&times;</button>
+            <ul class="side-menu-links">
+                <li><a href="../../index.html#home">Início</a></li>
+                <li><a href="../../index.html#artigos">Artigos</a></li>
+                <li><a href="../../index.html#nossa-missao">Nossa Missão</a></li>
+                <li><a href="saibaMais.html">Saiba Mais</a></li>
+                <li><a href="todosOsPosts.html">Todos os Posts</a></li>
+            </ul>
+            <div class="side-menu-socials">
+                <p>Redes sociais</p>
+                <div class="social-icons">
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/cintyamelogyn/" target="_blank" aria-label="Instagram" class="social-link">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="3" width="18" height="18" rx="4"
+                                stroke="currentColor" stroke-width="1.5"/>
+                            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/>
+                            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+                        </svg>
+                    </a>
+
+                    <!-- YouTube -->
+                    <a href="https://www.youtube.com/@Cintyamelogyn" target="_blank" aria-label="YouTube" class="social-link">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21.8 8.001a2.75 2.75 0 0 0-1.937-1.948C18.158 5.75 12 5.75 12 5.75s-6.158 0-7.863.303A2.75 2.75 0 0 0 2.2 8.001 28.53 28.53 0 0 0 1.75 12a28.53 28.53 0 0 0 .55 3.999 2.75 2.75 0 0 0 1.937 1.948C5.842 18.25 12 18.25 12 18.25s6.158 0 7.863-.303a2.75 2.75 0 0 0 1.937-1.948A28.53 28.53 0 0 0 22.25 12a28.53 28.53 0 0 0-.45-3.999Z"/>
+                            <path fill="#fff" d="M10 15.5v-7l6 3.5-6 3.5Z"/>
+                        </svg>
+                    </a>
+
+                    <!-- WhatsApp -->
+                    <a href="https://wa.me/556292963486" target="_blank" aria-label="WhatsApp" class="social-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                            viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.149-.67.15-.197.297-.768.967-.94 1.164-.173.198-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.447-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.67-1.611-.917-2.206-.242-.579-.487-.5-.67-.51-.173-.008-.372-.01-.571-.01a1.096 1.096 0 00-.793.372c-.273.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.1 3.2 5.088 4.487.711.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.29.173-1.413-.074-.124-.273-.198-.57-.347z"/>
+                            <path
+                                d="M12.004 2.003a9.93 9.93 0 00-9.94 9.939c0 1.755.465 3.47 1.353 4.984L2 22l5.254-1.38a9.924 9.924 0 004.75 1.207h.001a9.936 9.936 0 000-19.874zm0 18.111a8.17 8.17 0 01-4.162-1.142l-.297-.176-3.12.82.833-3.04-.192-.312a8.16 8.16 0 01-1.23-4.327 8.17 8.17 0 0116.339 0 8.17 8.17 0 01-8.171 8.177z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
 </body>
-</html>
