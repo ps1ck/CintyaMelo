@@ -3,9 +3,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 20px auto; /* centraliza horizontalmente */
+    margin: 20px auto 0px auto; /* centraliza horizontalmente */
     max-width: 900px;
-    border: #333 1px solid;
+    border: 1px solid var(--color-neutral-2);
     box-shadow: -15px -10px 8px -4px rgba(0, 0, 0, 0.25);
     padding: 40px 80px;
 }
@@ -122,6 +122,134 @@
     text-align: justify;
 }
 
+.share-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.share-btn {
+  background-color: #f5f5f5;
+  border: none;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+.share-btn:hover {
+  transform: scale(1.1);
+}
+
+.share-btn img {
+  width: 22px;
+  height: 22px;
+  filter: invert(20%) sepia(10%) saturate(0%) hue-rotate(0deg);
+}
+
+/* Cores ao passar o mouse */
+.whatsapp:hover {
+  background-color: #25D366;
+}
+
+.linkedin:hover {
+  background-color: #0A66C2;
+}
+
+.x:hover {
+  background-color: var(--color-neutral-4);
+}
+
+.copy:hover {
+  background-color: var(--color-primary-4);
+}
+
+.posts-recentes {
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-artigo-recente {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;            
+  width: 47vw;                   
+}
+
+.header-artigo-recente p {
+  color: var(--color-primary-1);
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.header-artigo-recente a {
+  color: var(--color-primary-1);
+  font-weight: 400;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.header-artigo-recente a:hover {
+  color: var(--color-primary-4);
+}
+
+.artigos-recentes {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin: 12px;
+}
+
+.artigo-posts-recentes {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-neutral-2);
+  width: 15vw;
+}
+
+.artigo-posts-recentes img {
+  width: 290px;
+  height: auto;
+  object-fit: cover;
+  position: relative;
+}
+
+.artigo-posts-recentes h1 {
+  color: var(--color-primary-1);
+  font-size: 1.11rem;
+  font-weight: 415;
+  margin: 10px 10px;
+}
+
+@media (max-width: 1550px) {
+  .artigo-posts-recentes {
+    width: 19vw;
+}
+
+   .header-artigo-recente {
+    justify-content: space-between;        
+    width: 62%;                   
+  }
+}
+
+@media (max-width: 1200px) {
+  .artigo-posts-recentes {
+    width: 24vw;
+}
+  .header-artigo-recente {
+      justify-content: space-between;        
+      width: 80%;                   
+    }
+}
+
 @media (max-width: 800px) {
   .meio-artigo {
     display: flex;
@@ -164,5 +292,73 @@
     font-weight: 400;
     margin-top: 10px;
     margin-bottom: 15px;
+  }
+
+  .posts-recentes {
+    justify-content: space-between;
+}
+
+  .header-artigo-recente {
+    justify-content: space-between;        
+    width: 100%;                   
+  }
+
+  .artigos-recentes {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .artigo-posts-recentes {
+    width: 30vw;
+}
+  
+  .artigo-posts-recentes img {
+  width: 290px;
+  height: auto;
+  object-fit: cover;
+  position: relative;
+}
+
+.artigo-posts-recentes h1 {
+  color: var(--color-primary-1);
+  font-size: 0.9rem;
+  font-weight: 425;
+  margin: 7px 7px;
+  }
+}
+
+@media (max-width: 550px) {
+  .header-artigo-recente p {
+    font-size: 0.95rem;
+    font-weight: 415;
+}
+
+.header-artigo-recente a {
+    font-size: 0.95rem;
+    font-weight: 415;
+}
+  
+  .artigos-recentes {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .artigo-posts-recentes {
+    width: 85vw;
+}
+  
+  .artigo-posts-recentes img {
+    width: 450px;
+    height: auto;
+    object-fit: cover;
+    position: relative;
+}
+
+.artigo-posts-recentes h1 {
+    color: var(--color-primary-1);
+    font-size: 0.9rem;
+    font-weight: 425;
+    margin: 7px 7px;
   }
 }

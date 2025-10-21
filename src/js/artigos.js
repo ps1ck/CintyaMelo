@@ -36,3 +36,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+const currentURL = window.location.href;
+  const pageTitle = document.title;
+
+  document.getElementById("whatsapp-share").addEventListener("click", () => {
+    const text = `${pageTitle} - ${currentURL}`;
+    const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`;
+    window.open(url, "_blank");
+  });
+
+  document.getElementById("linkedin-share").addEventListener("click", () => {
+    const url = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(currentURL)}`;
+    window.open(url, "_blank");
+  });
+
+  document.getElementById("x-share").addEventListener("click", () => {
+    const text = `${pageTitle} - ${currentURL}`;
+    const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
+    window.open(url, "_blank");
+  });
+
+  document.getElementById("copy-link").addEventListener("click", () => {
+    navigator.clipboard.writeText(currentURL)
+      .then(() => alert("Link copiado para a área de transferência!"))
+      .catch(() => alert("Não foi possível copiar o link."));
+  });
