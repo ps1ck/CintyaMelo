@@ -54,6 +54,7 @@
 }
 
 @media (max-width: 420px) {
+    #home { display: flex; flex-direction: column; }
     .email-form input[type="email"], .email-form button { width: 100%; }
     .email-form { gap: 0.5rem; }
 }

@@ -6,7 +6,7 @@
     margin: 20px auto 0px auto; /* centraliza horizontalmente */
     max-width: 900px;
     border: 1px solid var(--color-neutral-2);
-    box-shadow: -15px -10px 8px -4px rgba(0, 0, 0, 0.25);
+    box-shadow: -20px -10px 30px -4px rgba(0, 0, 0, 0.25);
     padding: 40px 80px;
 }
 
@@ -96,9 +96,13 @@
 
 .meio-artigo p {
     color: var(--color-primary-1);
-    font-size: 1.05rem;
+    font-size: 1.025rem;
     font-weight: 380;
     text-align: justify;
+}
+
+strong {
+    color: var(--color-primary-1);
 }
 
 .final-artigo {
@@ -109,17 +113,17 @@
 
 .final-artigo h1 {
     color: var(--color-primary-1);
-    font-size: 1.32rem;
+    font-size: 1.2rem;
     font-weight: 400;
+    margin-bottom: 10px;
 }
 
 .final-artigo p {
     color: var(--color-primary-1);
-    font-size: 1.02rem;
+    font-size: 1rem;
     font-weight: 400;
-    margin-top: 10px;
-    margin-bottom: 15px;
     text-align: justify;
+    margin-bottom: 10px;
 }
 
 .share-buttons {
@@ -217,7 +221,7 @@
 
 .artigo-posts-recentes img {
   width: 290px;
-  height: auto;
+  height: 210px;
   object-fit: cover;
   position: relative;
 }
