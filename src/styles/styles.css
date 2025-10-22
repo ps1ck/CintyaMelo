@@ -11,11 +11,11 @@
 
 :root {
     --color-primary-1: #45515D;
-    --color-primary-2: #5cc45fe5;
+    --color-primary-2: #5cc45f;
     --color-primary-3: #E04C51;
-    --color-primary-4: #edc432d2;
-    --color-primary-5: #54b9dedd;
-    --color-primary-6: #f3c3c1f0;
+    --color-primary-4: #edc432;
+    --color-primary-5: #54b9de;
+    --color-primary-6: #f3c3c1;
 
     --color-neutral-1: #FFF;
     --color-neutral-2: #bcbdbe;
@@ -25,6 +25,11 @@
     --color-neutral-6: #54b9de90;
     --color-neutral-7: #5cc45faa;
     --color-neutral-8: #1d2328;
+    --color-neutral-9: #bcbdbe71;
+
+    --color-home-1: #45515d95;
+    --color-home-2: #54b9de84;
+    --color-home-3: #f3c3c17a;
 }
 
 *{
@@ -40,6 +45,11 @@ html, body {
     width: 100%;
     overflow-x: hidden;
 }
+
+a {
+    text-decoration: none;
+}
+
 .titulos {  
     color: var(--color-primary-1);
     font-size: 2rem;

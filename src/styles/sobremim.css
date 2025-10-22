@@ -1,7 +1,7 @@
 .sobremim {
     display: flex;
     flex-direction: row;
-    background: linear-gradient(120deg, var(--color-primary-2) 0%, var(--color-primary-5) 60%, var(--color-primary-4) 100%);
+    background: linear-gradient(80deg, var(--color-home-2) 0%, var(--color-home-3) 100%);
     padding: 20px 120px;
     gap: 40px;
     

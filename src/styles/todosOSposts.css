@@ -1,8 +1,20 @@
+.img-todos-os-posts {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-todos-os-posts img {
+    max-width: 400px;
+    margin: 20px 0px 30px 0px;
+}
+
 .todosOsPosts {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+    margin: 0px 250px;
     gap: 30px;
-    margin: 50px 180px;
 }
 
 .artigo-todos-os-artigos {
@@ -13,12 +25,25 @@
     border: 1px solid #ccc; /* opcional: deixa cada card destacado */
     box-sizing: border-box;
     height: 100%; /* Faz os cards crescerem uniformemente no grid */
+    max-width: 450px;
 }
 
 .artigo-todos-os-artigos img {
     width: 100%; /* Faz a imagem ocupar toda a largura do card */
-    height: auto;
+    height: 100%;
     object-fit: cover;
+}
+
+.artigo-todos-os-artigos a{
+    color: var(--color-primary-1);
+    border: var(--color-neutral-2) 1px solid;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+.artigo-todos-os-artigos a:hover {
+    background-color: var(--color-neutral-9);
 }
 
 .header-artigo-todos {
@@ -46,24 +71,33 @@
     font-weight: 350;
 }
 
+@media (max-width: 950px) {
+    .todosOsPosts {
+        margin: 0px 150px;
+}
+}
+
 @media (max-width: 768px) {
     .todosOsPosts {
         grid-template-columns: 1fr;
-        margin: 50px 90px;
+        margin: 0px 100px;
     }
 }
 
 @media (max-width: 450px) {
+    .img-todos-os-posts img {
+        max-width: 300px;
+}
     .todosOsPosts {
         grid-template-columns: 1fr;
-        margin: 50px 50px;
+        margin: 0px 10px;
     }
 
     .header-artigo-todos p {
     color: var(--color-primary-1);
     font-size: 0.75rem;
     font-weight: 380;
-}
+    }
 
     .titulo-artigo-todos {
         font-size: 1rem;

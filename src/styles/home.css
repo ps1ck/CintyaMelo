@@ -3,7 +3,7 @@
     width: 100%; /* avoid 100vw which can cause horizontal overflow due to scrollbars */
     min-height: 75vh;
     align-items: stretch;
-    background: linear-gradient(120deg, var(--color-primary-2) 0%, var(--color-primary-5) 60%, var(--color-primary-4) 100%);
+    background: linear-gradient(120deg, var(--color-home-1) 0%, var(--color-home-2) 60%, var(--color-home-3) 100%);
     flex-wrap: wrap; /* allow stacking on small screens */
 }
 
