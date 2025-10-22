@@ -13,7 +13,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     place-items: center;
-    margin: 0px 250px;
+    margin: 0px 250px 30px 250px;
     gap: 30px;
 }
 
@@ -73,14 +73,14 @@
 
 @media (max-width: 950px) {
     .todosOsPosts {
-        margin: 0px 150px;
+        margin: 0px 150px 30px 150px;
 }
 }
 
 @media (max-width: 768px) {
     .todosOsPosts {
         grid-template-columns: 1fr;
-        margin: 0px 100px;
+        margin: 0px 100px 30px 100px;
     }
 }
 
@@ -90,7 +90,7 @@
 }
     .todosOsPosts {
         grid-template-columns: 1fr;
-        margin: 0px 10px;
+        margin: 0px 10px 20px 10px;
     }
 
     .header-artigo-todos p {
