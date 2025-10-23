@@ -10,7 +10,7 @@ document.querySelectorAll(".custom-form").forEach(form => {
 
     try {
       const data = new FormData();
-      data.append("email_address", email);
+      data.append("email", email);
       data.append("api_key", "kJjkZAZY10RhyIACjw2siA");
 
       const res = await fetch("https://app.kit.com/forms/8699115/subscriptions", {
