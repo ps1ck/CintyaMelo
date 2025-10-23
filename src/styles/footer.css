@@ -58,19 +58,19 @@ footer {
     color: var(--color-primary-1);
 }
 
-.meio-footer .email-form {
+.meio-footer .custom-form {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
 
-.meio-footer .email-form input[type="email"] {
+.meio-footer .custom-form input[type="email"] {
     font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
 
-.meio-footer .email-form button {
+.meio-footer .custom-form button {
     padding: 0.7rem 1.2rem;
     background: var(--color-primary-1);
     color: #fff;
@@ -81,7 +81,7 @@ footer {
     transition: background 0.2s;
 }
 
-.email-form button:hover {
+.custom-form button:hover {
     background: var(--color-primary-4);
 }
 

@@ -43,19 +43,19 @@
     margin-bottom: 2rem;
 }
 
-.email-form {
+.custom-form {
     display: flex;
     gap: 0.5rem;
 }
 
-.email-form input[type="email"] {
+.custom-form input[type="email"] {
     padding: 0.7rem 1rem;
     font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
 
-.email-form button {
+.custom-form button {
     padding: 0.7rem 1.2rem;
     background: var(--color-primary-1);;
     color: #fff;
@@ -66,7 +66,7 @@
     transition: background 0.2s;
 }
 
-.email-form button:hover {
+.custom-form button:hover {
     background: var(--color-primary-4);
 }
 
@@ -89,7 +89,7 @@
     .banner-left { align-items: center; padding-left: 4vw; }
     .banner-right { align-items: center; padding-right: 4vw; }
     .banner-right h1 { text-align: center; }
-    .email-form { justify-content: center; flex-wrap: wrap; }
+    .custom-form { justify-content: center; flex-wrap: wrap; }
 }
 
 @media (max-width: 600px) {
@@ -98,6 +98,6 @@
 
 @media (max-width: 420px) {
     #home { display: flex; flex-direction: column; }
-    .email-form input[type="email"], .email-form button { width: 100%; }
-    .email-form { gap: 0.5rem; }
+    .custom-form input[type="email"], .custom-form button { width: 100%; }
+    .custom-form { gap: 0.5rem; }
 }
