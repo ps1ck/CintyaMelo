@@ -139,26 +139,3 @@ document.getElementById("voltar").addEventListener("click", function() {
     window.location.href = "/"; // se não houver página anterior, vai pro início
   }
 });
-
-document.querySelector('.email-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-
-  const form = e.target;
-  const data = new FormData(form);
-
-  fetch(form.action, {
-    method: 'POST',
-    body: data,
-    headers: { "Accept": "application/json" }
-  })
-  .then(response => {
-    if (response.ok) {
-      form.innerHTML = "<p style='color:#fff; font-weight:500;'>✅ E-mail cadastrado com sucesso!</p>";
-    } else {
-      form.innerHTML = "<p style='color:#fff; font-weight:500;'>⚠️ Ocorreu um erro. Tente novamente.</p>";
-    }
-  })
-  .catch(() => {
-    form.innerHTML = "<p style='color:#fff; font-weight:500;'>⚠️ Erro de conexão. Tente novamente.</p>";
-  });
-});
