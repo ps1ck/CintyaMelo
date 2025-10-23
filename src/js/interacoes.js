@@ -145,19 +145,22 @@ document.querySelectorAll(".custom-form").forEach(form => {
     e.preventDefault();
 
     const email = this.email_address.value.trim();
-    const message = this.querySelector(".form-message");
+    const message = this.parentElement.querySelector(".form-message");
 
     message.textContent = "Enviando...";
     message.style.color = "#333";
 
     try {
+      const data = new FormData();
+      data.append("email_address", email);
+      data.append("api_key", "kJjkZAZY10RhyIACjw2siA");
+
       const res = await fetch("https://app.kit.com/forms/8699115/subscriptions", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          api_key: "kJjkZAZY10RhyIACjw2siA",
-          email
-        })
+        body: data,
+        headers: {
+          "Accept": "application/json"
+        }
       });
 
       if (res.ok) {
@@ -175,5 +178,3 @@ document.querySelectorAll(".custom-form").forEach(form => {
     }
   });
 });
-
-
