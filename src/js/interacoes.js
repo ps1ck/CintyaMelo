@@ -131,3 +131,11 @@ document.addEventListener("DOMContentLoaded", function () {
     if (nossaMissao) io.observe(nossaMissao);
     revealTargets.forEach(node => { if (node !== preFooter) io.observe(node); });
 });
+
+document.getElementById("voltar").addEventListener("click", function() {
+  if (document.referrer) {
+    history.back(); // volta para a página anterior
+  } else {
+    window.location.href = "/"; // se não houver página anterior, vai pro início
+  }
+});
