@@ -140,37 +140,40 @@ document.getElementById("voltar").addEventListener("click", function() {
   }
 });
 
-document.getElementById("custom-form").addEventListener("submit", async function(e) {
-  e.preventDefault();
+document.querySelectorAll(".custom-form").forEach(form => {
+  form.addEventListener("submit", async function(e) {
+    e.preventDefault();
 
-  const email = this.email_address.value.trim();
-  const message = document.getElementById("form-message");
+    const email = this.email_address.value.trim();
+    const message = this.querySelector(".form-message");
 
-  message.textContent = "Enviando...";
-  message.style.color = "#333";
+    message.textContent = "Enviando...";
+    message.style.color = "#333";
 
-  try {
-    const res = await fetch("https://api.convertkit.com/v3/forms/8699115/subscribe", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        api_key: "kJjkZAZY10RhyIACjw2siA",
-        email
-      })
-    });
+    try {
+      const res = await fetch("https://api.convertkit.com/v3/forms/8699115/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          api_key: "kJjkZAZY10RhyIACjw2siA",
+          email
+        })
+      });
 
-    if (res.ok) {
-      message.textContent = "Sucesso! Verifique seu e-mail para confirmar a inscrição 💌";
-      message.style.color = "green";
-      this.reset();
-    } else {
-      const err = await res.json();
-      message.textContent = err.message || "Ocorreu um erro. Tente novamente.";
+      if (res.ok) {
+        message.textContent = "Sucesso! Verifique seu e-mail para confirmar a inscrição 💌";
+        message.style.color = "green";
+        this.reset();
+      } else {
+        const err = await res.json();
+        message.textContent = err.message || "Ocorreu um erro. Tente novamente.";
+        message.style.color = "red";
+      }
+    } catch (error) {
+      message.textContent = "Erro de conexão. Tente novamente.";
       message.style.color = "red";
     }
-  } catch (error) {
-    message.textContent = "Erro de conexão. Tente novamente.";
-    message.style.color = "red";
-  }
+  });
 });
+
 
