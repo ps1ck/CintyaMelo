@@ -151,7 +151,7 @@ document.querySelectorAll(".custom-form").forEach(form => {
     message.style.color = "#333";
 
     try {
-      const res = await fetch("https://api.convertkit.com/v3/forms/8699115/subscribe", {
+      const res = await fetch("https://app.kit.com/forms/8699115/subscriptions", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
