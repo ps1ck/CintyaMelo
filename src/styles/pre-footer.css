@@ -2,24 +2,23 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 100px 0px;
+    margin: 40px 0px;
+    gap: 40px;
 }
 
-#Texto-pre-footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+#pre-footer img {
+    max-width: 140px;
+    max-height: 140px;
 }
 
 #pre-footer h1 {
     font-weight: 400;
     color: var(--color-primary-1);
-    font-size: clamp(1rem, 2.5vw, 1.6rem);
-    padding: 0 1rem;
+    font-size: 1.4rem;
 }
 
-@media (max-width: 420px) {
-    #pre-footer { margin: 24px 8px; }
-    #Texto-pre-footer h1 { font-size: 1rem; }
+@media (max-width: 470px) {
+    #pre-footer { margin: 30px 30px; }
+    #pre-footer h1 { font-size: 1.2rem; }
+    #pre-footer img { max-width: 120px; max-height: 120px; }
 }
