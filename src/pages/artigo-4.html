@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="/src/styles/styles.css">
+    <link rel="icon" type="image/png" href="/src/images/logo.png">
     <title>Hipossensibilização Tátil no Autismo</title>
-    <link rel="icon" type="image/png" href="../images/logo.png">
 </head>
 <body>
     <header>
-        <img src="../images/logo.png" alt="">
+        <img src="/src/images/logo.png" alt="">
         <!-- Botão hambúrguer para abrir menu lateral -->
         <button id="btn-hamburger" class="hamburger" aria-label="Abrir menu" aria-controls="side-menu" aria-expanded="false">
             <span class="hamburger-line"></span>
@@ -41,7 +41,7 @@
                 </div>
             </div>
             <div class="meio-artigo">
-                <img src="../images/frio-page.jpg" alt="">
+                <img src="/src/images/frio-page.jpg" alt="">
                 <p>
                     Muitos pais já se perguntaram: “Será que meu filho não sente frio?”, ao vê-lo sair com roupas leves
                     em dias gelados ou não reagir ao toque de superfícies quentes ou geladas. Essa percepção pode estar 
@@ -161,24 +161,26 @@
             <section class="posts-recentes">
                 <div class="header-artigo-recente">
                         <p>Posts recentes</p>
-                        <a href="../pages/todosOsPosts.html">Ver todos</a>
+                        <a href="/src/pages/todosOsPosts.html">  
+                            <button>Ver todos</button>
+                        </a>
                 </div>
                 <div class="artigos-recentes">
                     <div class="artigo-posts-recentes">
                         <a href="/src/pages/artigo-1.html">
-                            <img src="../images/tdah.jpg" alt="">
+                            <img src="/src/images/tdah.jpg" alt="">
                         </a>
                         <h1 class="titulo-artigo-todos">TDAH - Desmistifcando mitos que prejudicam a família</h1>
                     </div>
                     <div class="artigo-posts-recentes">
                         <a href="/src/pages/artigo-2.html">
-                            <img src="../images/crianca.jpg" alt="">
+                            <img src="/src/images/crianca.jpg" alt="">
                         </a>
                         <h1 class="titulo-artigo-todos">Como a criança aprende a ser respeitosa e gentil: Um guia...</h1>
                     </div>
                     <div class="artigo-posts-recentes">
                         <a href="/src/pages/artigo-3.html">
-                            <img src="../images/diagnostico.jpg" alt="">
+                            <img src="/src/images/diagnostico.jpg" alt="">
                         </a>
                         <h1 class="titulo-artigo-todos">Por trás de um diagnóstico: a jornada da família atípica</h1>
                     </div>
@@ -186,9 +188,9 @@
             </section>
     </main>
 
-    <script src="../js/artigos.js" defer></script>
-    <script src="../js/interacoes.js"></script>
-    <script src="../js/menu.js"></script>
+    <script src="/src/js/artigos.js" defer></script>
+    <script src="/src/js/interacoes.js"></script>
+    <script src="/src/js/menu.js"></script>
     <!-- Menu lateral (markup colocado após scripts para facilitar manipulação via JS) -->
     <nav id="side-menu" class="side-menu" aria-hidden="true">
         <div class="side-menu-inner">
