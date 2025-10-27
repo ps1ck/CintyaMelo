@@ -173,7 +173,6 @@ strong {
   filter: invert(20%) sepia(10%) saturate(0%) hue-rotate(0deg);
 }
 
-/* Cores ao passar o mouse */
 .whatsapp:hover {
   background-color: #25D366;
 }
@@ -190,7 +189,6 @@ strong {
   background-color: var(--color-primary-4);
 }
 
-/* POSTS RECENTES */
 .posts-recentes {
   display: flex;
   flex-direction: column;

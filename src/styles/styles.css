@@ -21,15 +21,15 @@
     --color-neutral-2: #bcbdbe;
     --color-neutral-3: #0B0B85;
     --color-neutral-4: #83898e;
-    --color-neutral-5: #edc43257;
+    --color-neutral-5: #be9e2949;
     --color-neutral-6: #54b9de90;
     --color-neutral-7: #5cc45faa;
     --color-neutral-8: #1d2328;
     --color-neutral-9: #bcbdbe71;
 
-    --color-home-1: #45515d95;
+    --color-home-1: #45515d75;
     --color-home-2: #54b9de84;
-    --color-home-3: #f3c3c16b;
+    --color-home-3: #f3c3c171;
 }
 
 *{
@@ -39,8 +39,8 @@
     box-sizing: border-box;
 }
 
-/* Prevent accidental horizontal overflow on small devices. This is a safety net;
-   layout should still be responsive without relying on this. */
+/*  Previne overflow horizontal em telas pequenas, ta aplicado de forma global pra evitar que isso aconteça acidentalmente.
+   O layout deve continuar responsivo, sem que isso atrapalhe */
 html, body {
     width: 100%;
     overflow-x: hidden;
@@ -68,20 +68,18 @@ a {
     font-weight: 395;
 }
 
-/* Make images and svgs responsive by default to avoid overflow */
+/* Torna images e svgs responsivas como padrão pra evitar overflow */
 img, svg {
     max-width: 100%;
     height: auto;
     display: block;
 }
 
-/* Small adjustments for very small screens */
 @media (max-width: 420px) {
     .titulos { font-size: 1.4rem; }
     .sub-titulos { font-size: 1rem; }
 }
 
-/* Scroll reveal utilities */
 .reveal-item {
     opacity: 0;
     transform: translateY(30px);
@@ -93,6 +91,5 @@ img, svg {
     transform: translateY(0);
 }
 
-/* Small helper to stagger children if inline style not provided */
 .reveal-stagger > * { opacity: 0; transform: translateY(30px); transition: opacity 1300ms cubic-bezier(.2,.9,.3,1), transform 1300ms cubic-bezier(.2,.9,.3,1); }
 .reveal-stagger > *.revealed { opacity: 1; transform: translateY(0); }

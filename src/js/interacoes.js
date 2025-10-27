@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const likeCountEl = artigo.querySelector(".like-count");
         const likeArea = artigo.querySelector(".like-area");
 
-        // CURTIDAS (mesmo comportamento anterior)
+        // CURTIDAS 
         let likes = parseInt(localStorage.getItem(likeKey)) || 0;
         let liked = localStorage.getItem(likedKey) === "true";
 
@@ -59,17 +59,17 @@ document.addEventListener("DOMContentLoaded", function () {
         viewCountEl.innerHTML = `${currentViews} <span class="views">Visualizações</span>`;
     });
 
-    /* Scroll reveal using IntersectionObserver */
+    /* Scroll reveal usando IntersectionObserver */
     const revealTargets = [];
 
-    // titulos-artigos (reveal from bottom)
+    // titulo acima dos artigos do index
     document.querySelectorAll('.titulos-artigos').forEach(el => revealTargets.push(el));    
 
-    // 'Ver mais' button at the end of artigos
+    // 'Ver mais' botão no final dos artigos no index
     const verMaisBtn = document.querySelector('#artigos a');
     if (verMaisBtn) revealTargets.push(verMaisBtn);
 
-    // pre-footer: reveal all children with a stagger
+    // pre-footer: revela todos os elementos children dele (Tudo que ta dentro dele, textos e botões), pre-footer ta no index
     const preFooter = document.querySelector('#pre-footer');
     let preFooterChildren = [];
     if (preFooter) {
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", function () {
         preFooterChildren.forEach(child => child.classList.add('reveal-item'));
     }
 
-    // TextoNossaMissao: reveal all children with a stagger (same behavior as pre-footer)
+    // texto do nossa missão
     const nossaMissao = document.querySelector('.TextoNossaMissao');
     let nossaMissaoChildren = [];
     if (nossaMissao) {
@@ -88,20 +88,20 @@ document.addEventListener("DOMContentLoaded", function () {
         nossaMissaoChildren.forEach(child => child.classList.add('reveal-item'));
     }
 
-    // Add reveal-item to single targets
+    // Adiciona reveal-item para alvos separados
     revealTargets.forEach(node => {
         if (!node.classList.contains('reveal-item')) node.classList.add('reveal-item');
     });
 
-    // Configurable timings (change these to tune behavior)
-    const REVEAL_DELAY_MS = 120; // delay before reveal after entering viewport
-    const PREFOOTER_STAGGER_MS = 150; // stagger between pre-footer children
+    // Configurando timings (muda pra configurar o comportamento)
+    const REVEAL_DELAY_MS = 120; // delay pra revelar depois de entrar no viewport
+    const PREFOOTER_STAGGER_MS = 150; // stagger entre o pre-footer children
 
     const io = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             const el = entry.target;
             if (entry.isIntersecting) {
-                // if parent is pre-footer, stagger children
+                // se o parent for pre-footer, stagger children
                 if (el === preFooter) {
                     preFooterChildren.forEach((child, i) => {
                         setTimeout(() => child.classList.add('revealed'), REVEAL_DELAY_MS + i * PREFOOTER_STAGGER_MS);
@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     setTimeout(() => el.classList.add('revealed'), REVEAL_DELAY_MS);
                 }
             } else {
-                // remove revealed so the animation can reset when re-entering
+                // remove revealed pra animação poder resetar
                 if (el === preFooter) {
                     preFooterChildren.forEach(child => child.classList.remove('revealed'));
                 } else if (el === nossaMissao) {
@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
 
-    // Observe parent preFooter wrapper for stagger, and other targets normally
+    // Observa parent preFooter quebrar pra stagger, e outros alvos normalmente
     if (preFooter) io.observe(preFooter);
     if (nossaMissao) io.observe(nossaMissao);
     revealTargets.forEach(node => { if (node !== preFooter) io.observe(node); });

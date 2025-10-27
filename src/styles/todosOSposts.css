@@ -22,7 +22,7 @@
     flex-direction: column;
     justify-content: space-between; /* Faz o conteúdo ocupar toda a altura */
     padding: 15px;
-    border: 1px solid #ccc; /* opcional: deixa cada card destacado */
+    border: 1px solid #ccc; /* deixa cada card destacado */
     box-sizing: border-box;
     height: 100%; /* Faz os cards crescerem uniformemente no grid */
     max-width: 450px;
