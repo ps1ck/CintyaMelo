@@ -31,16 +31,15 @@
         <section id="home">
             <div class="banner-left">
                 <h2 class="sub-titulos">O blog para Pais e Terapeutas</h2>
-                <form class="custom-form">
-                    <input 
-                        type="email" 
-                        name="email_address" 
-                        placeholder="Digite seu e-mail" 
-                        required
-                    >
+                <form class="custom-form" id="subscribeForm">
+                    <div class="coluna-inputs">
+                        <input type="text" name="name" placeholder="Seu nome (opcional)" autocomplete="name">
+                        <input type="email" name="email" placeholder="Digite seu e-mail" required autocomplete="email">
+                    </div>
                     <button type="submit">Receber conteúdos</button>
                 </form>
-                <div class ="form-message" style="margin-top:10px;"></div>
+
+                <div class="form-message" id="formMessage" aria-live="polite"></div>
             </div>
             <div class="banner-right">
                 <h1 class="titulos">
@@ -175,16 +174,19 @@
             </div>
             <div class="meio-footer">
                 <h2>Receba dicas para facilitar sua jornada!</h2>
-                <form class="custom-form">
+                <div class="eg-embed-1e3e8fc9">
+                    <form class="custom-form" method="post" action="https://api.egoiapp.com/api/v1/forms/1e3e8fc9/add-subscriber">
                     <input 
                         type="email" 
-                        name="email_address" 
+                        name="email" 
                         placeholder="Digite seu e-mail" 
                         required
                     >
+                    <input type="hidden" name="list" value="1e3e8fc9"> <!-- o E-goi inclui -->
                     <button type="submit">Receber conteúdos</button>
-                </form>
-                <div class ="form-message" style="margin-top:10px;"></div>
+                    </form>
+                    <div class="form-message" style="margin-top:10px;"></div>
+                </div>
             </div>
             <div class="direita-footer">
                 <p>Por Cintya Melo Terapeuta Ocupacional<br>

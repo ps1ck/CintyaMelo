@@ -127,16 +127,18 @@
             </div>
             <div class="meio-footer">
                 <h2>Receba dicas para facilitar sua jornada!</h2>
-                <form class="custom-form">
-                    <input 
-                        type="email" 
-                        name="email_address" 
-                        placeholder="Digite seu e-mail" 
-                        required
-                    >
-                    <button type="submit">Receber conteúdos</button>
-                </form>
-                <div class ="form-message" style="margin-top:10px;"></div>
+                <form class="custom-form" method="post" action="https://api.egoiapp.com/api/v1/forms/12345/add-subscriber">
+  <input 
+    type="email" 
+    name="email" 
+    placeholder="Digite seu e-mail" 
+    required
+  >
+  <input type="hidden" name="list" value="123456"> <!-- o E-goi inclui -->
+  <button type="submit">Receber conteúdos</button>
+</form>
+<div class="form-message" style="margin-top:10px;"></div>
+
             </div>
             <div class="direita-footer">
                 <p>Por Cintya Melo Terapeuta Ocupacional<br>

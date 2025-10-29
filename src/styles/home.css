@@ -48,6 +48,19 @@
     gap: 0.5rem;
 }
 
+.coluna-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.custom-form input[type="text"] {
+    padding: 0.7rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
 .custom-form input[type="email"] {
     padding: 0.7rem 1rem;
     font-size: 1rem;
@@ -97,6 +110,6 @@
 
 @media (max-width: 420px) {
     #home { display: flex; flex-direction: column; }
-    .custom-form input[type="email"], .custom-form button { width: 100%; }
+    .custom-form input[type="text"], .custom-form input[type="email"], .custom-form button { width: 100%; }
     .custom-form { gap: 0.5rem; }
 }
