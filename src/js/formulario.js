@@ -1,5 +1,5 @@
 /* ====== CONFIGURE AQUI ====== */
-const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzzJ7yrqo810YoC0HqnqpBRhdBsG-mVvoX7UiRuljdTt7pB4Hh-UDxppg1Mu4-i5s9k/exec';
+const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwYfaP8x5hz9Uw-xdb-czj9_zSj4pidKGXdcL9u1Jlrk8tqIY4mXPIkcDH8hx0vpzJ6/exec';
 const WEB_APP_TOKEN = 'meu_token_5j3kL9'; // ← mesma string que colocou no Apps Script
 /* =========================== */
 
