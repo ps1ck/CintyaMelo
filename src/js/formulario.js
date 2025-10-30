@@ -1,5 +1,5 @@
 /* ====== CONFIGURE AQUI ====== */
-const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbyRKidivXruJWuTyhgXrVMCbmc2joAhQozQBS8XBZfIOuhISPLWqMEs9iLE_acuoBLY/exec'; // ← substitua com a URL do Apps Script (doPost)
+const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzzJ7yrqo81Oy0C0HqnqpBRhdBsG-mVvoX7UiRuljdTt7pB4Hh-UDxppg1Mu4-i5s9k/exec';
 const WEB_APP_TOKEN = 'meu_token_5j3kL9'; // ← mesma string que colocou no Apps Script
 /* =========================== */
 
