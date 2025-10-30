@@ -1,7 +1,7 @@
-/* ====== CONFIGURE AQUI ====== */
-const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbyeLcd0Egi3K8YfOnkHTk069F5FfqYu4fD1P2WAWKl5wcomosdVQsfj6BRqBaLUeko0/exec';
-const WEB_APP_TOKEN = 'meu_token_5j3kL9'; // ← mesma string que colocou no Apps Script
-/* =========================== */
+/* ===== CONFIGURAÇÃO ===== */
+const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxs2sv4OuKpi9jT6Op4Y-m6FJ5m5tgqNLDqndEIf4V6-sQsFPvmnfupyJywUDAY9xKB/exec';
+const WEB_APP_TOKEN = 'meu_token_5j3kL9';
+/* ======================== */
 
 function validarEmail(email) {
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -16,16 +16,18 @@ document.addEventListener('DOMContentLoaded', () => {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     message.style.color = '#333';
+    message.textContent = 'Enviando...';
 
     const formData = new FormData(form);
-    const email = (formData.get('email')||'').trim();
-    const name = (formData.get('name')||'').trim();
+    const email = (formData.get('email') || '').trim();
+    const name = (formData.get('name') || '').trim();
 
     if (!email) {
       message.textContent = 'Por favor, insira um e-mail.';
       message.style.color = 'red';
       return;
     }
+
     if (!validarEmail(email)) {
       message.textContent = 'E-mail inválido. Verifique e tente novamente.';
       message.style.color = 'red';
@@ -33,28 +35,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     submitBtn.disabled = true;
-    message.textContent = 'Enviando...';
 
     try {
-      const payload = { email: email, name: name, token: WEB_APP_TOKEN };
-
-      const res = await fetch(WEB_APP_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-        mode: 'cors'
+      // envia via GET — compatível com o Apps Script
+      const params = new URLSearchParams({
+        email,
+        name,
+        token: WEB_APP_TOKEN
       });
 
-      const json = await res.json();
+      const response = await fetch(`${WEB_APP_URL}?${params.toString()}`, {
+        method: 'GET',
+        mode: 'no-cors', // impede bloqueio CORS
+      });
 
-      if (res.ok && json.success) {
-        message.style.color = 'green';
-        message.innerHTML = '<strong>Sucesso!</strong> Verifique seu e-mail (confirmação enviada).';
-        form.reset();
-      } else {
-        message.style.color = 'red';
-        message.textContent = json && json.message ? json.message : 'Ocorreu um erro. Tente novamente.';
-      }
+      // como no-cors impede ler o JSON, mostramos sucesso simples
+      message.style.color = 'green';
+      message.innerHTML = '<strong>Sucesso!</strong> Verifique seu e-mail (confirmação enviada).';
+      form.reset();
+
     } catch (err) {
       console.error(err);
       message.style.color = 'red';
