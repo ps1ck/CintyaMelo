@@ -1,11 +1,10 @@
-/* ===== CONFIGURAÇÃO ===== */
-const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzNt03bmn2Gf1ELDYJDQ_scfkWgWn9hEWNdTH6y6RIFHnffJXwaS60XUaLNFZ91yEUM/exec';
+/* ===== CONFIG ===== */
+const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbyRO4JIN8NmKXi6cHyrvGV2I0pEfMJ1fAL5EaaH0fgoMK1owISXOqdsrqydIjveOk_U/exec';
 const WEB_APP_TOKEN = 'meu_token_5j3kL9';
-/* ======================== */
+/* ================== */
 
 function validarEmail(email) {
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return re.test(email);
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,21 +14,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    message.style.color = '#333';
     message.textContent = 'Enviando...';
+    message.style.color = '#333';
 
-    const formData = new FormData(form);
-    const email = (formData.get('email') || '').trim();
-    const name = (formData.get('name') || '').trim();
-
-    if (!email) {
-      message.textContent = 'Por favor, insira um e-mail.';
-      message.style.color = 'red';
-      return;
-    }
+    const email = form.email.value.trim();
+    const name = form.name.value.trim();
 
     if (!validarEmail(email)) {
-      message.textContent = 'E-mail inválido. Verifique e tente novamente.';
+      message.textContent = 'E-mail inválido.';
       message.style.color = 'red';
       return;
     }
@@ -37,27 +29,29 @@ document.addEventListener('DOMContentLoaded', () => {
     submitBtn.disabled = true;
 
     try {
-      // envia via GET — compatível com o Apps Script
       const params = new URLSearchParams({
         email,
         name,
         token: WEB_APP_TOKEN
       });
 
-      const response = await fetch(`${WEB_APP_URL}?${params.toString()}`, {
-        method: 'GET',
-        mode: 'no-cors', // impede bloqueio CORS
-      });
+      const response = await fetch(`${WEB_APP_URL}?${params.toString()}`);
 
-      // como no-cors impede ler o JSON, mostramos sucesso simples
-      message.style.color = 'green';
-      message.innerHTML = '<strong>Sucesso!</strong> Verifique seu e-mail (confirmação enviada).';
-      form.reset();
+      const json = await response.json();
+
+      if (json.success) {
+        message.textContent = 'Inscrição realizada com sucesso! Verifique seu e-mail.';
+        message.style.color = 'green';
+        form.reset();
+      } else {
+        message.textContent = json.message || 'Erro ao enviar dados.';
+        message.style.color = 'red';
+      }
 
     } catch (err) {
-      console.error(err);
-      message.style.color = 'red';
       message.textContent = 'Erro de conexão. Tente novamente.';
+      message.style.color = 'red';
+      console.error(err);
     } finally {
       submitBtn.disabled = false;
     }
