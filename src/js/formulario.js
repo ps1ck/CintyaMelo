@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+
     message.textContent = 'Enviando...';
     message.style.color = '#333';
 
@@ -29,13 +30,16 @@ document.addEventListener('DOMContentLoaded', () => {
     submitBtn.disabled = true;
 
     try {
-      const params = new URLSearchParams({
-        email,
-        name,
-        token: WEB_APP_TOKEN
+      // Envio via método POST (recomendado pelo Apps Script)
+      const response = await fetch(WEB_APP_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          name,
+          token: WEB_APP_TOKEN
+        })
       });
-
-      const response = await fetch(`${WEB_APP_URL}?${params.toString()}`);
 
       const json = await response.json();
 
