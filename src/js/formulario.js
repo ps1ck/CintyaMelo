@@ -1,5 +1,5 @@
 /* ===== CONFIG ===== */
-const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbyRO4JIN8NmKXi6cHyrvGV2I0pEfMJ1fAL5EaaH0fgoMK1owISXOqdsrqydIjveOk_U/exec';
+const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzeqYM5lLL1Jl2huoydh3ETcJAHhuxwto1PbvkMmfL_St-07g8zm1b3QsHXEwlFJThh/exec'; // ex: https://script.google.com/macros/s/AKfy.../exec
 const WEB_APP_TOKEN = 'meu_token_5j3kL9';
 /* ================== */
 
@@ -12,52 +12,66 @@ document.addEventListener('DOMContentLoaded', () => {
   const message = document.getElementById('formMessage');
   const submitBtn = form.querySelector('button[type="submit"]');
 
-  form.addEventListener('submit', async (e) => {
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
-
-    message.textContent = 'Enviando...';
     message.style.color = '#333';
+    message.textContent = 'Enviando...';
 
-    const email = form.email.value.trim();
-    const name = form.name.value.trim();
+    const email = (form.email && form.email.value || '').trim();
+    const name = (form.name && form.name.value || '').trim();
 
     if (!validarEmail(email)) {
-      message.textContent = 'E-mail inválido.';
       message.style.color = 'red';
+      message.textContent = 'E-mail inválido.';
       return;
     }
 
     submitBtn.disabled = true;
 
-    try {
-      // Envio via método POST (recomendado pelo Apps Script)
-      const response = await fetch(WEB_APP_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email,
-          name,
-          token: WEB_APP_TOKEN
-        })
-      });
+    // cria um callback único para esta chamada
+    const callbackName = 'jsonp_cb_' + Date.now() + '_' + Math.floor(Math.random()*1000);
 
-      const json = await response.json();
-
-      if (json.success) {
-        message.textContent = 'Inscrição realizada com sucesso! Verifique seu e-mail.';
-        message.style.color = 'green';
-        form.reset();
-      } else {
-        message.textContent = json.message || 'Erro ao enviar dados.';
-        message.style.color = 'red';
+    // define a função global que o JSONP irá chamar
+    window[callbackName] = function(response) {
+      try {
+        if (response && response.success) {
+          message.style.color = 'green';
+          message.textContent = 'Inscrição realizada! Verifique seu e-mail.';
+          form.reset();
+        } else {
+          message.style.color = 'red';
+          message.textContent = (response && response.message) ? response.message : 'Erro no envio.';
+        }
+      } finally {
+        // cleanup: remove o script e a função callback
+        const s = document.getElementById(callbackName + '_script');
+        if (s && s.parentNode) s.parentNode.removeChild(s);
+        try { delete window[callbackName]; } catch(e) { window[callbackName] = undefined; }
+        submitBtn.disabled = false;
       }
+    };
 
-    } catch (err) {
-      message.textContent = 'Erro de conexão. Tente novamente.';
+    // monta URL segura (encode)
+    const params = new URLSearchParams({
+      email: email,
+      name: name,
+      token: WEB_APP_TOKEN,
+      callback: callbackName
+    });
+
+    const script = document.createElement('script');
+    script.src = WEB_APP_URL + '?' + params.toString();
+    script.id = callbackName + '_script';
+    script.onerror = function() {
       message.style.color = 'red';
-      console.error(err);
-    } finally {
+      message.textContent = 'Erro de rede ao enviar. Tente novamente.';
+      // cleanup
+      try { delete window[callbackName]; } catch(e) {}
+      if (script.parentNode) script.parentNode.removeChild(script);
       submitBtn.disabled = false;
-    }
+    };
+
+    // injeta script para fazer o request (JSONP)
+    document.head.appendChild(script);
   });
 });
