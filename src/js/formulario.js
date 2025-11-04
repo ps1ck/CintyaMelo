@@ -1,6 +1,6 @@
 /* ===== CONFIG ===== */
-const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwShWr_oM09dLdfJF97bn3bYrFzGqlovqwIf-kzSySiYgOxAJ5MTcC3IwbGTy02nidc/exec';
-const WEB_APP_TOKEN = 'meu_token_5j3kL9';
+const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwirN-1UoOde07RJUyODh0UUdYm97m_dbOlqQ9vQd9fs8h7Rfj-1V4MjWV9z5ekj5Nv/exec';
+const WEB_APP_TOKEN = 'token-706c13-emails';
 /* ================== */
 
 function validarEmail(email) {
