@@ -1,5 +1,5 @@
 /* ===== CONFIG ===== */
-const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzeqYM5lLL1Jl2huoydh3ETcJAHhuxwto1PbvkMmfL_St-07g8zm1b3QsHXEwlFJThh/exec'; // ex: https://script.google.com/macros/s/AKfy.../exec
+const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwxcmTPpAShVhJNCTlw4rrgi_8ZE2LgGqHAMLrhhe5FXlmr9b-k4ofQhVTByET8Xhz-/exec'; // ex: https://script.google.com/macros/s/AKfy.../exec
 const WEB_APP_TOKEN = 'meu_token_5j3kL9';
 /* ================== */
 
