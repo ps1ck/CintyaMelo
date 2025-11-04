@@ -53,19 +53,19 @@ a {
 .titulos {  
     color: var(--color-primary-1);
     font-size: 2rem;
-    font-weight: 450;
+    font-weight: 400;
 }
 
 .sub-titulos { 
     color: var(--color-primary-1);
     font-size: 1.2rem ;
-    font-weight: 400;
+    font-weight: 375;
 }
 
 .descriptions {
     color: var(--color-primary-1);
-    font-size: 0.94rem;
-    font-weight: 395;
+    font-size: 0.95rem;
+    font-weight: 350;
 }
 
 /* Torna images e svgs responsivas como padrão pra evitar overflow */

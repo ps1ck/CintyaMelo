@@ -29,8 +29,10 @@
 }
 
 .artigo-todos-os-artigos img {
-    width: 100%; /* Faz a imagem ocupar toda a largura do card */
+    width: 100%;
     height: 100%;
+    max-width: 420px;
+    max-height: 315px;
     object-fit: cover;
 }
 
@@ -65,7 +67,7 @@
 .header-artigo-todos p {
     color: var(--color-primary-1);
     font-size: 0.95rem;
-    font-weight: 400;
+    font-weight: 375;
 }
 
 .titulo-artigo-todos {
