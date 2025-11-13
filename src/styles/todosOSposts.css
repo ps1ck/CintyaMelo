@@ -13,7 +13,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     place-items: center;
-    margin: 0px 250px 30px 250px;
+    margin: 0px 400px 30px 400px;
     gap: 30px;
 }
 
@@ -81,6 +81,12 @@
     font-size: 1.05rem;
     color: var(--color-primary-1);
     font-weight: 350;
+}
+
+@media (max-width: 1400px) {
+    .todosOsPosts {
+        margin: 0px 250px 30px 250px;
+    }
 }
 
 @media (max-width: 950px) {
